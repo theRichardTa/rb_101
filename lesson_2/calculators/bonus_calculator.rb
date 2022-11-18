@@ -1,17 +1,12 @@
-# ask the user for two numbers
-# ask the user for an operation to perform
-# perform the operation on the two numbers
-# output the result
-
-# answer = gets
-# puts answer
+require 'yaml'
+MESSAGES = YAML.load_file('calculator_messages.yml')
 
 def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
 def valid_number?(num)
-  num.to_i() != 0
+  num.to_i.to_s == num || num.to_f.to_s == num
 end
 
 def operation_to_message(operator)
@@ -30,15 +25,39 @@ end
 number1 = nil
 number2 = nil
 operator = nil
+language = nil
 
-prompt("Welcome to Calculator! Enter your name:")
+language_prompt = <<-TEXT
+  Language Selection:
+  For English enter 1
+  Para español ingrese 2
+TEXT
+
+prompt(language_prompt)
+language = gets.chomp
+
+# i did not validate number for language here.. just learning the other stuff
+# for now
+
+case language
+when '1'
+  language = "english"
+when '2'
+  language = "spanish"
+end
+
+sentences = {
+  greet: "Welcome to Calculator! Enter your name:"
+}
+
+prompt(sentences[:greet])
 
 name = ''
 loop do
   name = Kernel.gets().chomp()
 
   if name.empty?()
-    prompt("Make sure to use a valid name.")
+    prompt(MESSAGES[language]["invalid_name"])
   else
     break
   end
@@ -47,7 +66,6 @@ end
 prompt("Hi #{name}")
 
 loop do # main loop
-
   loop do
     prompt("What's the first number?")
     number1 = Kernel.gets().chomp()
@@ -55,7 +73,7 @@ loop do # main loop
     if valid_number?(number1)
       break
     else
-      prompt("Hmm.. that doesn't look like a valid number")
+      prompt(MESSAGES[language]['invalid_num'])
     end
   end
 
@@ -66,7 +84,7 @@ loop do # main loop
     if valid_number?(number2)
       break
     else
-      prompt("Hmm.. that doesn't look like a valid number")
+      prompt(MESSAGES[language]['invalid_num'])
     end
   end
 
@@ -90,8 +108,15 @@ loop do # main loop
     end
   end
 
-  prompt("#{operation_to_message(operator)} the two numbers..")
-  sleep 2
+  print("=> #{operation_to_message(operator)} the two numbers")
+
+  # artificial thinking
+  6.times do
+    sleep 0.5
+    print "."
+  end
+
+  puts ""
 
   result = (
   case operator
@@ -103,8 +128,7 @@ loop do # main loop
     number1.to_i() * number2.to_i()
   when '4'
     number1.to_f() / number2.to_f()
-  end
-  )
+  end)
 
   prompt("The result is #{result}")
 

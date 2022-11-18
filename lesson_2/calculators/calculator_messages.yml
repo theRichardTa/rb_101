@@ -1,0 +1,7 @@
+
+english:
+  invalid_num: "Hmm.. that doesn't look like a valid number"
+  invalid_name: "Make sure to use a valid name."
+spanish:
+  invalid_num: "fake spanish not real numero"
+  invalid_name: "Asegúrese de entrar un nombre válido."
