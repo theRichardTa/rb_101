@@ -52,7 +52,7 @@ def loan_duration_years_validate(loan_duration_years)
 end
 
 def yearly_rate_validate(yearly_rate)
-  yearly_rate.to_f >= 0 && yearly_rate.to_f < 100.00 && Float(yearly_rate) rescue false
+  yearly_rate.to_f > 0 && yearly_rate.to_f < 100.00 && Float(yearly_rate) rescue false
 end
 
 prompt "Hello, welcome to Mortgage / Car Loan Calculator!"
@@ -118,8 +118,15 @@ loop do # main calculations loop
     elsif repeat_answer.downcase == "n"
       prompt "Thank you for using me! Have a great day!"
       exit
-    else 
+    else
       error_prompt "Please input a valid answer."
     end
   end
 end
+
+# looking at other's code reviews... allowing " " into name fields does work for
+# mine...
+
+# i could extract out the individual get_value loops into methods themselves to
+# shorten the main code...
+
