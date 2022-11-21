@@ -25,3 +25,5 @@ end
 get_name(name)
 
 prompt "Hi, #{name.strip.capitalize}."
+
+# studying PEDAC
