@@ -57,24 +57,19 @@ loop do
     break if validate_choice(user_choice)
 
     if validate_choice_short(user_choice)
-      case user_choice
-      when 's'
-        user_choice = s_clarify_choice
-      when 'r'
-        user_choice = 'rock'
-      when 'p'
-        user_choice = 'paper'
-      when 'l'
-        user_choice = 'lizard'
-      end
+      user_choice = case user_choice
+                    when 's' then s_clarify_choice
+                    when 'r' then 'rock'
+                    when 'p' then 'paper'
+                    when 'l' then 'lizard'
+                    end
       break
     end
 
-    # I can use when / then here... the case is already defined FOR the value of
-    # user_choice.. try it
-
     error_prompt "Not a valid choice!"
   end
+
+  system("clear")
 
   prompt "You chose #{user_choice}."
 
@@ -91,7 +86,10 @@ loop do
     prompt "It's a tie!"
   end
 
-  prompt "You have #{user_wins} wins and the computer has #{computer_wins} wins."
+  wins_counter_text = "You have #{user_wins} wins and "\
+                      "the computer has #{computer_wins} wins."
+
+  prompt wins_counter_text
   puts ""
 
   next unless user_wins == 3 || computer_wins == 3
