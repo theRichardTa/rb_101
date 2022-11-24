@@ -1,12 +1,11 @@
-
-
-def name
-  "George"
+def rolling_buffer2(input_array, max_buffer_size, new_element)
+  buffer = input_array + [new_element]
+  buffer.shift if buffer.size > max_buffer_size
+  buffer
 end
 
-name = "Lisa"
+numbers = [0, 1, 2, 3, 4]
 
-loop do
-  puts name
-  break
-end
+p rolling_buffer2(numbers, 6, 5)
+
+p numbers
