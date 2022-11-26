@@ -1,1 +1,1 @@
-Launch School rb101 coursework.
+Launch School rb_101 coursework.
