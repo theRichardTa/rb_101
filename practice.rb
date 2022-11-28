@@ -1,1 +1,1 @@
-truck, thing, man, yep = [1, 2, 3]
+p ['a', 'b', 'c', 'c', 'c'].delete_if {|value| value == 'c'}
