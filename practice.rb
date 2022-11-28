@@ -1,1 +1,1 @@
-p ['a', 'b', 'c', 'c', 'c'].delete_if {|value| value == 'c'}
+wew
