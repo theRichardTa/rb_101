@@ -1,1 +1,1 @@
-wew
+p (20..200).to_a.sample
