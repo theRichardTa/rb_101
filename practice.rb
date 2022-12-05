@@ -1,7 +1,9 @@
-my_arr = [[18, 7], [3, 12]].each do |arr|
-  arr.each do |num|
-    if num > 5
-      puts num
+[[[1242452, 2, 3], [2], [3], [4]], [['a'], ['b'], ['c']]].map do |element1|
+  element1.map do |element2|
+    element2.partition do |element3|
+      p element3
+      element3.size > 15
     end
   end
 end
+
