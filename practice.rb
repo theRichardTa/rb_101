@@ -1,13 +1,19 @@
-munsters = {
-  "Herman" => { "age" => 32, "gender" => "male" },
-  "Lily" => { "age" => 30, "gender" => "female" },
-  "Grandpa" => { "age" => 402, "gender" => "male" },
-  "Eddie" => { "age" => 10, "gender" => "male" },
-  "Marilyn" => { "age" => 23, "gender" => "female"}
-}
+def make_uuid
+  chars = []
+  ("a".."f").each {|char| chars << char}
+  (0..9).each {|num| chars << num.to_s}
 
-munsters.each do |person, info|
-  puts munsters[person]["age"]
+  iterations = [8, 4, 4, 4, 12]
+
+  uuid = []
+  iterations.each do |num|
+    string = ''
+    num.times do |_|
+      string << chars.sample
+    end
+    uuid << string
+  end
+  uuid.join("-")    
 end
 
-puts "hello"
+p make_uuid
