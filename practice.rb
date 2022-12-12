@@ -1,6 +1,8 @@
-arr = [1 , 3, 5, 6]
-arr2 = [2, 3, 5, 9]
+def integer_to_string(num)
+  num.digits.reverse.join
+end
 
-arr3 = arr | arr2
 
-p arr3 
+p integer_to_string(4321) == '4321'
+p integer_to_string(0) == '0'
+p integer_to_string(5000) == '5000'

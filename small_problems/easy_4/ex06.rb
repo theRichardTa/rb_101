@@ -8,12 +8,22 @@
 # try with .each_with_object or .inject
 
 
+# def running_total(array)
+#   array.map.with_index do |value, index|
+#     array[0..index].inject(:+)
+#   end
+# end
 
+# wow this worked first try
 
+def running_total(array)
+  total = 0
+  array.each_with_object([]) do |value, array2|
+    array2 << total += value
+  end
+end
 
-
-
-
+# .sum exists too to really simplify things
 
 
 
