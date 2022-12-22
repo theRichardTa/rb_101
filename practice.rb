@@ -1,3 +1,12 @@
-string = "hello"
+a = [2, 4]
 
-p string.chars
+b = [0, 10]
+
+
+yo = a.product(b).map do |num1, num2, num3|
+  num1 + num2
+end
+
+
+
+p yo.sort
