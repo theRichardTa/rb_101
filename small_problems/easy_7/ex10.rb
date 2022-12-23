@@ -15,3 +15,5 @@ end
 p mid_word("") # empty case nils but it didn't error or give wrong answer
 
 # seems right
+
+# KIDS HERE FOR CHRISTMAS

@@ -1,3 +1,0 @@
-poo = ""
-
-p poo.split
