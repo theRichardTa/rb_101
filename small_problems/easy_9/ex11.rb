@@ -1,29 +1,27 @@
 def anagrams(array)
-  selected =array.select.with_index do |word, index|
 
-    chars = array.map do |wordz|
-      wordz.chars.sort
-    end
+  chars = array.map do |word|
+    word.chars.sort
+  end
 
-    chars.uniq.each do |array|
-      chars[index] == array
+  selected = chars.uniq.map do |chars_array|
+    array.select.with_index do |word, index|
+    chars_array == chars[index]
     end
   end
-  p selected
+
+  # selected = array.select.with_index do |word, index|
+
+  #   chars = array.map do |wordz|
+  #     wordz.chars.sort
+  #   end
+
+  #   chars.uniq.each do |array|
+  #     chars[index] == array
+  #   end
+  # end
+  # p selected
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -43,4 +41,4 @@ words =  ['demo', 'none', 'tied', 'evil', 'dome', 'mode', 'live',
 
   wordz = ['demo', 'dome', 'halo']
 
-p anagrams(wordz)
+p anagrams(words)
