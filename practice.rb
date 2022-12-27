@@ -1,12 +1,6 @@
-require 'pry'
+hash = {}
 
-array = ["hello", "hello", "hi"]
+hash["hello"] << ["hi"]
+hash["hello"] << "ayo"
 
-uniqs = array.uniq
-
-uniqs.each do |word|
-  selected = array.select do |thing|
-    thing == word
-  end
-  p selected
-end
+p hash
