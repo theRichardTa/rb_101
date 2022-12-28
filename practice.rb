@@ -1,6 +1,8 @@
-hash = {}
+array = [1, 2, 3, 4, 5]
 
-hash["hello"] << ["hi"]
-hash["hello"] << "ayo"
+array2 = ['a', 'b', 'c']
 
-p hash
+array[0..1] = array2[0..1]
+
+p array => ["a", "b", 3, 4, 5]
+
