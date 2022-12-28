@@ -10,6 +10,8 @@ def anagrams(array)
     end
   end
 
+  selected.each { |array_match| p array_match }
+
   # selected = array.select.with_index do |word, index|
 
   #   chars = array.map do |wordz|
@@ -41,4 +43,4 @@ words =  ['demo', 'none', 'tied', 'evil', 'dome', 'mode', 'live',
 
   wordz = ['demo', 'dome', 'halo']
 
-p anagrams(words)
+anagrams(words)
