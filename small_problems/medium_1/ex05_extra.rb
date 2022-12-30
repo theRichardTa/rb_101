@@ -1,5 +1,9 @@
 def print_line(space_num, star_num)
-  puts ' ' * space_num + '*' * star_num + ' ' * space_num
+  if star_num == 1
+    puts ' ' * space_num + '*' * star_num + ' ' * space_num
+  else
+    puts ' ' * space_num + '*' + ' ' * (star_num - 2) + '*' + ' ' * space_num
+  end
 end
 
 def diamond(num)
@@ -21,6 +25,3 @@ end
 
 diamond(9)
 
-# IT WORKS !
-
-# teacher did same general concept but extracted even more logic into sub-method
