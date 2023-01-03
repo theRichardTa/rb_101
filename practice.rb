@@ -1,3 +1,4 @@
-3.upto(1) do
-  puts "hi"
-end
+string = 'hello'
+p string.count('hol')
+=> 4
+

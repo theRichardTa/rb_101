@@ -1,28 +1,3 @@
-# string = "hello my friend mike. hi to you! awesome! sauce tikki ya?"
-
-# # p string.split(/[?.!]/).map { |sentence| sentence.lstrip }
-# # the above removes leading whitespace but isn't important for our use-case here
-
-# what = string.split(/[?.!]/).sort_by do |sentence|
-#   length = sentence.length
-# end
-
-# p what
-
-def longest(string)
-  lengths_array = string.split(/[?.!]/).sort_by do |sentence|
-    length = sentence.length
-  end
-
-  puts "The longest sentence is:"
-  puts lengths_array.last
-  puts "It is #{lengths_array.last.split.length} words long."
-end
-
-# teacher used array.max to compare the lengths of the sentences
-
-
-
 string = "Four score and seven years ago our fathers brought forth
 on this continent a new nation, conceived in liberty, and
 dedicated to the proposition that all men are created
@@ -55,6 +30,37 @@ of freedom -- and that government of the people, by
 the people, for the people, shall not perish from the
 earth."
 
-book = %()
 
-longest(string)
+def longest(string)
+  lengths_array = string.split(/(?<=[?.!])/).sort_by do |sentence|
+    length = sentence.length
+  end
+
+  puts "The longest sentence is:"
+  puts lengths_array.last.lstrip
+  puts "It is #{lengths_array.last.split.length} words long."
+end
+
+longest("hello. there my friend how are you? doing today great.")
+
+def long_word(string)
+  string2 = string.clone
+  string2.gsub!(/(\n)/, ' ')
+  string2.delete!('^A-Za-z ')
+  result = string2.split.max_by do |word|
+    word.length
+  end
+  puts "The longest word is #{result}."
+  puts "It's length is #{result.length} letters."
+end
+
+long_word(string)
+
+def long_para(string)
+  paras = string.split(/(\n\n)/)
+  paras.max_by { |para| para.length }
+end
+
+p long_para(string)
+
+# this could be polished I think but the logic is sound
