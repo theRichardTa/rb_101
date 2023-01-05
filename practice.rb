@@ -1,10 +1,5 @@
-a = 1
+p (Time.new(2000) + 86400).to_a[3]
 
-b = 2
+year = 2000
 
-c = 3
-
-case
-when a == b || c == 3
-  puts 'hello'
-end
+p Time.utc(year+1)
