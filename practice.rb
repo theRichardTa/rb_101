@@ -1,5 +1,4 @@
-p (Time.new(2000) + 86400).to_a[3]
+num = 5
 
-year = 2000
 
-p Time.utc(year+1)
+p (1..num).to_a.sum
