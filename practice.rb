@@ -1,4 +1,6 @@
-num = 5
 
 
-p (1..num).to_a.sum
+
+
+array = [1, 2, 3] * 3
+p array
