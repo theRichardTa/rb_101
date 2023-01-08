@@ -16,18 +16,9 @@ VALUES = {
   'K' => 10
 }
 
-def ace(hand)
-  if score(hand) <= 10
-    11
-  else
-    1
-  end
-end
-
 def score?(hand)
-  values = hand.clone.sort!
-
-  # don't need to sort.. just pop out the aces and put them at the end
+  values = hand.clone
+  values << values.delete('A') if values.include?('A')
 
   running_total = 0
   values.each_with_index do |card, index|
@@ -63,34 +54,78 @@ def deal_hands(first, second, cards)
   end
 end
 
-deck = SUIT * 4
-player = []
-dealer = []
+def outcome_msg(hand1, hand2)
+  case
+  when score?(hand1) == score?(hand2)
+    "You have tied!"
+  when score?(hand1) > score?(hand2)
+    "You have won!"
+  else
+    "You have lost!"
+  end
+end
 
-deal_hands(player, dealer, deck)
 
-answer = nil
 loop do
-  puts "Dealer shows #{dealer[0]}"
-  puts ''
-  puts "Your hand is #{player.join(' ')}"
-  puts "Your total is #{score?(player)}."
-  puts "Hit or stay?"
-  answer = gets.chomp
-  deal_card(player, deck) if answer.downcase == 'hit'
-  break if answer == 'stay' || busted?(player)
+
+  deck = SUIT * 4
+  player = []
+  dealer = []
+
+  deal_hands(player, dealer, deck)
+
+  loop do # player turn start
+    system('clear')
+    puts "Dealer shows #{dealer[0]}"
+    puts ''
+    puts "Your hand is #{player.join(' ')}"
+    puts "Your total is #{score?(player)}."
+    puts ''
+    puts "Hit or stay?"
+    answer = gets.chomp
+    if answer.downcase == 'hit'
+      deal_card(player, deck)
+      if busted?(player)
+        system('clear')
+        puts "You were dealt a #{player[-1]} and your hand is now #{player.join(' ')}"
+        puts "Your hand totals #{score?(player)}. You have busted!"
+        break
+      end
+    else
+      break
+    end
+    break if answer == 'stay'
+  end # player turn end
+
+  if !busted?(player) 
+    loop do # dealer turn start
+      puts "Dealer's hand is #{dealer.join(' ')}"
+      break if score?(dealer) >= 17
+      deal_card(dealer, deck)
+      puts "Dealer draws a #{dealer[-1]}"
+      sleep 5
+      if busted?(dealer)
+        puts "Dealer busted! You win!"
+      end
+      break if busted?(dealer)
+    end
+  end
+
+  if !busted?(player) && !busted?(dealer)
+    system('clear')
+    puts "Dealer's hand is #{dealer.join(' ')} which totals #{score?(dealer)}"
+    puts ''
+    puts "Your hand is #{player.join(' ')} which totals #{score?(player)}"
+    puts ''
+    puts outcome_msg(player, dealer)
+  end
+
+  puts "Would you like to play again?"
+  again = gets.chomp.downcase
+  break if again == 'no'
 end
 
-if busted?(player)
-  puts "Your hand totals #{score?(player)}. You have busted!"
-  puts "Play again?"
-  again = gets.chomp
-else
-  puts "You chose to stay!"
-end
-
-p player
-p score?(player)
+puts "Thanks for playing!"
 
 # # ... continue on to Dealer turn
 
