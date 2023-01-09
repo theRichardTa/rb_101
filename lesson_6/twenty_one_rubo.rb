@@ -25,14 +25,13 @@ def score?(hand)
   running_total = 0
   values.each_with_index do |card, index|
     if card == 'A'
+      # how would i clean up this code? tried twice
       if index != values.length - 1
         running_total += 1
+      elsif running_total <= 10
+        running_total += 11
       else
-        if running_total <= 10
-          running_total += 11
-        else
-          running_total += 1
-        end
+        running_total += 1
       end
     else
       running_total += VALUES[card]
@@ -57,10 +56,9 @@ def deal_hands(first, second, cards)
 end
 
 def outcome_msg(hand1, hand2)
-  case
-  when score?(hand1) == score?(hand2)
+  if score?(hand1) == score?(hand2)
     "You have tied!"
-  when score?(hand1) > score?(hand2)
+  elsif score?(hand1) > score?(hand2)
     "You have won!"
   else
     "You have lost!"
@@ -88,7 +86,8 @@ loop do
       puts "You drew a #{player[-1]}"
       if busted?(player)
         puts ''
-        puts "You were dealt a #{player[-1]} and your hand is now #{player.join(' ')}"
+        puts "You were dealt a #{player[-1]} and your hand is now "\
+        "#{player.join(' ')}"
         puts "Your hand totals #{score?(player)}. You have busted!"
         break
       end
@@ -132,4 +131,3 @@ end
 
 puts ''
 puts "Thanks for playing!"
-
