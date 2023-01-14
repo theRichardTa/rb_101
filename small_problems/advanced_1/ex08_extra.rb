@@ -1,3 +1,5 @@
+require 'pry'
+
 def merge(arr1, arr2)
   new_array = []
   a = arr1.clone
@@ -25,4 +27,19 @@ end
 
 # merge_sort non-recursively
 
-def merge_sort
+def merge_sort(array)
+  arr2 = [array]
+  loop do
+    arr2.map do |ar|
+      half = (ar.length / 2.0).round
+      a = ar[0..half - 1]
+      b = ar[(half)..-1]
+      arr2 = [a, b]
+      binding.pry
+    end
+  end
+end
+
+arr = [1, 2, 3, 4, 6]
+
+p merge_sort(arr)
