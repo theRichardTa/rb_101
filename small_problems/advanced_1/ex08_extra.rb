@@ -27,19 +27,22 @@ end
 
 # merge_sort non-recursively
 
+
+
 def merge_sort(array)
-  arr2 = [array]
+  stack = array
   loop do
-    arr2.map do |ar|
-      half = (ar.length / 2.0).round
-      a = ar[0..half - 1]
-      b = ar[(half)..-1]
-      arr2 = [a, b]
-      binding.pry
-    end
+    break if stack.size <= 1
+    if a.int?
+    a = stack.shift.flatten
+    b = stack.shift.flatten
+    stack << [a, b].sort
   end
+  stack[0]
 end
 
-arr = [1, 2, 3, 4, 6]
+
+
+arr = [1, 2, 19, 4, 6]
 
 p merge_sort(arr)
