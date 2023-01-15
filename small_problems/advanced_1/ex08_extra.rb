@@ -33,10 +33,11 @@ def merge_sort(array)
   stack = array
   loop do
     break if stack.size <= 1
-    if a.int?
-    a = stack.shift.flatten
-    b = stack.shift.flatten
-    stack << [a, b].sort
+    a = stack.shift
+    b = stack.shift
+    stack << [a, b].flatten.sort
+
+    p stack
   end
   stack[0]
 end
@@ -45,4 +46,6 @@ end
 
 arr = [1, 2, 19, 4, 6]
 
-p merge_sort(arr)
+p merge_sort(%w(Sue Pete Alice Tyler Rachel Kim Bonnie))
+
+# close enough bro im done
