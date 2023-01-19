@@ -1,3 +1,5 @@
+require 'pry'
+
 def merge_sort(array)
   n = array.length
   return array if n <= 1
@@ -39,6 +41,7 @@ def merge(array, start, middle, ending)
       j += 1
       k += 1
   end
+  p array
 end
 
-p merge_sort([5,2,1])
+p merge_sort([5,2,19,18,3,5,90,54])
