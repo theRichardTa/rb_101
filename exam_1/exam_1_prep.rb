@@ -5,6 +5,7 @@ I'm going to take the exams + interviews from the new courses since it should be
 Hopfully this also means easier but I suppose we'll see
 
 1. watch all 3 videos
+  - 2 down 1 to go
 
 2. read 3 articles
 
