@@ -13,4 +13,6 @@ Hopfully this also means easier but I suppose we'll see
 
 4. extra problems / schedule exam.
 
+5. thinking exam on wednesday?
+
 =end
