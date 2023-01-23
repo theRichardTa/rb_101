@@ -17,4 +17,6 @@ Hopfully this also means easier but I suppose we'll see
 
 6. wed too early.. prolly next monday.. im going slow but its okish.. the layoffs in the industry bro..
 
+shad my brains out
+
 =end
