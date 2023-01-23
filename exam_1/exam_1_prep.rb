@@ -19,4 +19,6 @@ Hopfully this also means easier but I suppose we'll see
 
 shad my brains out
 
+tomorrow we grind i promise
+
 =end
