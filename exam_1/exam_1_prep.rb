@@ -7,6 +7,10 @@ Hopfully this also means easier but I suppose we'll see
 1. watch all 3 videos
   - 2 down 1 to go
 
+  DONE
+
+
+
 2. read 3 articles
 
 3. slowly go thru the new course and read thru ntoes at same time
@@ -20,5 +24,7 @@ Hopfully this also means easier but I suppose we'll see
 shad my brains out
 
 tomorrow we grind i promise
+
+finished video 3.. time to read more articles / reread..
 
 =end
