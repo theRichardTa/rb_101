@@ -1,1 +1,3 @@
-p 's'.to_sym
+s = "hellotherebro"
+
+p s.split('hel')
