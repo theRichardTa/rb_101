@@ -1,3 +1,3 @@
-s = "hellotherebro"
+gree = "hello   there  dude"
 
-p s.split('hel')
+p gree.split
