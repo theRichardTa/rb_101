@@ -1,3 +1,6 @@
-gree = "hello   there  dude"
+def domain_name(url)
+  regex = /(http|https):\/\/(?:www\.)?(?<domain_name>.*?)\./
+  url.match(regex)[:domain_name]
+end
 
-p gree.split
+p domain_name("http://www.cawww.com.jp")
