@@ -1,12 +1,17 @@
-def is_valid_walk(walk)
-  distances = {}
-  directions = ['n', 's', 'w', 'e']
-  directions.each { |dir| distances[dir] = walk.count(dir)}
-  walk.length == 10 &&
-  distances['n] == distances[s] &&
-  distances[w] == distances[e]
+def title_case(title, minor_words = '')
+  title.split.map.with_index do |word, index|
+    if index == 0
+      word.capitalize
+    elsif minor_words.downcase.split.include?(word.downcase)
+      word.downcase
+    else
+      word.capitalize
+    end
+  end.join(' ')
 end
 
-p is_valid_walk(['n','s','n','s','n','s','n','s','n','s'])
+def title_case2(title, minor_words = '')
+  title.capitalize.split().map{|a| minor_words.downcase.split().include?(a) ? a : a.capitalize}.join(' ')
+end
 
-# i couldve directly compared them.. thats true
+p title_case2('the QUICK bRoWn fOX', 'xyz fox quick the')
