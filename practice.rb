@@ -1,6 +1,10 @@
+def digital_root(n)
+  until n.digits.size == 1
+    n = n.digits.sum
+  end
+  n
+end
 
 
-p 425.to_s.chars[0..1].join.to_i
-p ''
+p digital_root(942)
 
-p '425'[0..1]
