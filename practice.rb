@@ -1,3 +1,5 @@
-CAP = ('A'..'Z').to_a
+def count_smileys(arr)
+  arr.count { |e| e =~ /(:|;){1}(-|~)?(\)|D)/ }
+end
 
-p CAP.index('Z') + 13
+p count_smileys(["ssrd:)"])
