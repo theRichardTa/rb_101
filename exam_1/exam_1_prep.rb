@@ -6,4 +6,4 @@ wat to do
 
   idk
 
-  clash
+  clash is now over
