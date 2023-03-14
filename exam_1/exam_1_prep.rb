@@ -9,3 +9,5 @@ wat to do
   clash is now over
 
   done.. focus
+
+  glasses problem now
