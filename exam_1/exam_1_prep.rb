@@ -11,3 +11,5 @@ wat to do
   done.. focus
 
   glasses problem now
+
+  cc tomorrow tireded
